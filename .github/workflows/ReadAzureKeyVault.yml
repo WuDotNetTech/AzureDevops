@@ -29,4 +29,12 @@ jobs:
         uses: Azure/login@v3.0.2
         with:
           # Paste output of `az ad sp create-for-rbac` as value of secret variable: AZURE_CREDENTIALS
-          creds: ${{ AZURE_CREDENTIALS }}
+          creds: ${{AZURE_CREDENTIALS}}
+        id: getKeyVaultSecret
+
+      - name: Dump things with a secret
+        env: 
+           SECRET: ${{steps.getKeyVaultSecret.outputs.Secret1}}
+        run: |
+           echo "Can I see $SECRET"
+
