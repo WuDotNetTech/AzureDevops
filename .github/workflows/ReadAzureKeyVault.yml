@@ -44,5 +44,5 @@ jobs:
            SECRET: ${{ steps.getKeyVaultSecret.outputs.nugetsecrets }}
         run: |
            echo "Can I see $SECRET" 
-           if [ $SECRET = "123456" ]; then echo "That is a match"; fi
+           if [ "$SECRET" = "123456" ]; then echo "That is a match"; fi
 
