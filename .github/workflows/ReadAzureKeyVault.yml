@@ -36,13 +36,14 @@ jobs:
         uses: theotow/keyvault-secret-azure@v1
         with:
           # name of the azure key vault
-          key-vault-name: kv_autoonline
-          secrets: Mysecret1
+          key-vault-name: kv-autoonline001
+          secrets: nugetsecrets
         id: getKeyVaultSecret
         
       - name: Dump things with a secret
         env: 
-           SECRET: ${{ steps.getKeyVaultSecret.outputs.Mysecret1 }}
+           SECRET: ${{ steps.getKeyVaultSecret.outputs.nugetsecrets }}
         run: |
-           echo "Can I see $SECRET"
+           echo "Can I see $SECRET" 
+           if [ $SECRET = "123456" ]; then echo "That is a match"; fi
 
