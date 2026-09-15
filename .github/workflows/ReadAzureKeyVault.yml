@@ -32,11 +32,10 @@ jobs:
           creds: ${{ secrets.AZURE_CREDENTIALS }}
           
       - name: Azure KeyVault Secrets
-        uses: theotow/keyvault-secret-azure@v1
+        uses: Azure/get-keyvault-secrets@v2
         with:
-          # name of the azure key vault
-          key-vault-name: kv-autoonline001
-          secrets: nugetsecrets
+            keyvault: "kv-autoonline001"
+            secrets: "nugetsecrets"
         id: getKeyVaultSecret
         
       - name: Dump things with a secret
