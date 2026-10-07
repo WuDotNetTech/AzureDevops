@@ -13,9 +13,18 @@ az ad sp create-for-rbac `
   --scopes "/subscriptions/19403b59-d03f-48ac-98b5-b90898177e10" `
   --json-auth
 
+# --list service principal
+# az role assignment list --assignee e29b4205-2083-413b-9956-bf04328e3d6c --all --query "[].{Role:roleDefinitionName, Scope:scope}" --output table
+
+
 --storage account role assignment
 az role assignment create `
-   --assignee "e29b4205-2083-413b-9956-bf04328e3d6c" `
+   --assignee "<ServicePrincipalId>" `
    --role "Storage Account Contributor" `
    --scope "/subscriptions/19403b59-d03f-48ac-98b5-b90898177e10/resourceGroups/rg-ao"
 
+# --Remove role assignment
+# az role assignment delete `
+#   --assignee e29b4205-2083-413b-9956-bf04328e3d6c `
+#   --role "Storage Account Contributor" `
+#   --scope "/subscriptions/19403b59-d03f-48ac-98b5-b90898177e10/resourceGroups/rg-ao"
