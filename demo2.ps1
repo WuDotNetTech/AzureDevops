@@ -6,12 +6,11 @@ az group create `
   --name "rg-ao" `
   --location "eastus"
 
-# --role contributor
-# az ad sp create-for-rbac `
-#   --name "github-actions-dev" `
-#   --role contributor `
-#   --scopes "/subscriptions/19403b59-d03f-48ac-98b5-b90898177e10" `
-#   --json-auth
+# -- create a service principal without role assignment
+az ad sp create-for-rbac `
+  --name "github-actions-dev" `
+  --skip-assignment `
+  --json-auth
 
 --storage account role assignment
 az role assignment create `
