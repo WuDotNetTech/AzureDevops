@@ -36,4 +36,4 @@ jobs:
               --resource-group rg-ao \
               --name storageaccount-ao \
               --template-file storageaccount.bicep \
-              --parameters @storageaccount-dev.bad.parameters.json
+              --parameters @storageaccount-dev.parameters.json
